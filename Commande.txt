@@ -14,3 +14,13 @@ System.IdentityModel.Tokens.Jwt
 
 to add authentication in midleware
 install package : Microsoft.AspNetCore.Authentication.JwtBearer
+
+//client 
+https://getbootstrap.com/
+ng generate --help 
+ng g c nav --dry-run // ng generate component
+ng g s //to create service
+
+Parent to child communication with Angular less than 17
+In register component :  @Input() userFromHomeComponent : any;
+<app-register [userFromHomeComponent]="users"></app-register>

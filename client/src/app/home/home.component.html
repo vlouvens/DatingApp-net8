@@ -1,0 +1,23 @@
+<div class="container">
+    @if(!registerMode){
+        <div style="text-align: center;">
+            <h1>Fing your match</h1>
+            <p class="lead">Come on in to view your matches ..... all you need</p>
+            <div class="text-center">
+                <button class="btn btn-primary btn-lg me-2" (click)="registerStatus()">Register</button>
+                <button class="btn btn-enfo btn-lg me-2">Learn more</button>
+            </div>
+        </div>
+    }@else {
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                   <app-register 
+                   (cancelRegister)="cancelRegisterMode($event)"
+                   [userFromHomeComponent]="users">
+                </app-register>
+                </div>
+            </div>
+        </div>
+    }
+</div>
