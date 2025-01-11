@@ -3,6 +3,6 @@
 //     Token : string;
 // }
 export type User={
-    Username : string;
-    Token : string;
+    username : string;
+    token : string;
 }

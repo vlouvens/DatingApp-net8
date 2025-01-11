@@ -24,3 +24,15 @@ ng g s //to create service
 Parent to child communication with Angular less than 17
 In register component :  @Input() userFromHomeComponent : any;
 <app-register [userFromHomeComponent]="users"></app-register>
+
+Nofication add ngxtoastr
+npm install ngx-toastr --save
+
+Add css file angular.json
+"node_modules/ngx-toastr/toastr.css"
+
+protect client from non autorize user using guard
+ng g g _guard
+
+Bootswatch that provide free theme
+npm install bootswatch

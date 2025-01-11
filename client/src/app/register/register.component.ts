@@ -1,6 +1,7 @@
 import { Component, EventEmitter, inject, input, output, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +12,7 @@ import { AccountService } from '../_services/account.service';
 })
 export class RegisterComponent {
   accountService = inject(AccountService);
+  toastr = inject(ToastrService);
   userFromHomeComponent = input.required<any>();
   cancelRegister = output<boolean>();
  // @Input() userFromHomeComponent : any;
@@ -20,11 +22,11 @@ export class RegisterComponent {
   register() {
     this.accountService.register(this.model).subscribe(
       {
-        next : response =>{
-          console.log(response)
+        next : _ =>{
           this.cancel();
         },
-        complete : () => console.log("Success")
+        complete : () => this.toastr.success("Registration successful"),
+        error : error => this.toastr.error(error.error)
       }
     )
   }
