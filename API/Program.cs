@@ -1,4 +1,6 @@
+using API;
 using API.Extensions;
+using API.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
@@ -11,6 +13,9 @@ var app = builder.Build();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Add middleware to the request pipeline that will handle exceptions
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 app.MapControllers();
