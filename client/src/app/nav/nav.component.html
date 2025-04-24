@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container">
       <a class="navbar-brand" routerLink="/">Datting App</a>
-      @if(accountService.currentUser()){
+      
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-         
+          @if(accountService.currentUser()){
             <li class="nav-item">
               <a routerLink="/members" routerLinkActive="active" class="nav-link" >Matches</a>
             </li>
@@ -13,7 +13,12 @@
             <li class="nav-item">
               <a routerLink="/lists" routerLinkActive="active"  class="nav-link" >List</a>
             </li>
+          }
+          <li class="nav-item">
+            <a routerLink="/error" routerLinkActive="active"  class="nav-link" >Errors</a>
+          </li>
           </ul>
+          @if(accountService.currentUser()){
         <div class="dropdown" dropdown>
             <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>
               Welcome {{accountService.currentUser()?.username | titlecase}}
@@ -23,7 +28,7 @@
                   <a  class="dropdown-item" (click)="logout()">Logout</a>
             </div>
         </div>
-      }
+          }
       @if(!accountService.currentUser()){
         <form class="d-flex" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
             <input class="form-control me-2" name="username" [(ngModel)]="model.username" type="text" placeholder="Username">
