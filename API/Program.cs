@@ -1,6 +1,8 @@
 using API;
+using API.Data;
 using API.Extensions;
 using API.Middleware;
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
@@ -26,4 +28,20 @@ app.UseCors(options =>
         .AllowAnyHeader()
         .AllowAnyMethod()
 );
+
+//seed data
+var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+var context = services.GetRequiredService<DataContext>();
+try
+{
+    await context.Database.MigrateAsync();
+    await SeedData.SeedDataAsync(context);
+}
+catch (Exception ex)
+{
+
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "An error occurred during migration");
+}
 app.Run();

@@ -11,7 +11,11 @@ public static class IdentityServiceExtension
     public static IServiceCollection AddIdentityService(this IServiceCollection services, IConfiguration config)
     {
     services.AddScoped<ITokenService, TokenService>();
-        services.AddDbContext<DataContext>(options =>
+    services.AddScoped<IUserRespository, UserRepository>();
+    //Register the AutoMapper service
+    services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    
+    services.AddDbContext<DataContext>(options =>
     {
         options.UseSqlite(config.GetConnectionString("DefaultConnection"));
     });

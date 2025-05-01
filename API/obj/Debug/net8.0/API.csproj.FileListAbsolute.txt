@@ -138,3 +138,5 @@ C:\AngularApp\DatingApp\API\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\AngularApp\DatingApp\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\AngularApp\DatingApp\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\AngularApp\DatingApp\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\AngularApp\DatingApp\API\bin\Debug\net8.0\Data\UserSeedData.json
+C:\AngularApp\DatingApp\API\bin\Debug\net8.0\AutoMapper.dll

@@ -1,0 +1,22 @@
+Repository
+A repository mediates between the domain and data mapping layers, acting like an in-memory domain object collection.
+
+Advantages of repository pattern
+
+- Minimizes duplicate query logic
+- Decouples application from  persistance framework
+- All Databases queries are centralized and not scattered throughout the app.
+- Allows us to change ORM easily
+- Promotes testability
+We can easily Mock a Repository interface, testing against the DbContext is more difficult
+
+Desavantages of respository pattern
+- Abstraction of an abstraction
+- Each root entity should have it's own repository which means more code
+Also need to implement the UnitOfWork pattern to control transactions
+----------------------------------------------------------------------------------
+Install automapper via Nuget Galerie
+Automapper to convert based object to object mapper
+
+For injecting the automapper services
+services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies())
